@@ -11,4 +11,9 @@ RSpec.describe User, type: :model do
   it { should validate_confirmation_of(:password) }
   it { should allow_value('example@domain.com').for(:email) }
 
+  describe "when email is not present" do
+    before { @user.email = " "}
+    it { should_not be_valid }
+
+  end
 end

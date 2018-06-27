@@ -1,4 +1,5 @@
 require 'rails_helper'
+require 'httparty'
 
 describe Api::V1::UsersController do
   before(:each) { request.headers['Accept'] = "application/ffapi.v1" }
@@ -6,7 +7,7 @@ describe Api::V1::UsersController do
   describe "GET #SHOW" do
     before (:each) do
       @user = FactoryBot.create :user
-      get :show, params: {id: @user_id, format: :json}
+      get :show, params: {id: @user.id, format: :json}
     end
 
     it "returns the information about a reporter on a hash" do
