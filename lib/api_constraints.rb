@@ -5,6 +5,6 @@ class APIConstraints
   end
 
   def matches?(req)
-    @default || req.headers['Accept'].include?("application/vnd.ffapi.v#{@version}")
+    @default || req.headers['Accept'].include?("application.ffapi.v#{@version}")
   end
 end
